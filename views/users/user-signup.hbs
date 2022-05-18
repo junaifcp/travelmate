@@ -1,0 +1,78 @@
+    
+<div class="container register pt-5">
+
+                <div class="row">
+                    {{>message}}
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>My Tour Mate</h3>
+                        <p>“A journey of a thousand miles begins with a single step” – Lao Tzu</p>
+                        <a href="/"><input type="submit" name="" value="Back to home"/></a><br/>
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tourist</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Mytourmate</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Apply as a Tourist</h3>
+
+                                <form action="/signup" method="POST">
+                                 
+                                    <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input name="firstName" type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="email" type="email" class="form-control" placeholder="Your Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="touristPhone" type="text" minlength="10" maxlength="10" class="form-control" placeholder="Your Phone *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="password" type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        
+                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input name="lastName" type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female </span> 
+                                                </label>                     
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" minlength="1" maxlength="3" name="touristAge" class="form-control" placeholder="Your Age *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input name="cPassword" type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>

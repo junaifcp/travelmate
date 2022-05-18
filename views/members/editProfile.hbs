@@ -1,0 +1,62 @@
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/images/edit-header.webp');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="index.html">{{users.firstName}}&nbsp;<i class="fa fa-chevron-right"></i></a></span> <span>Edit profile&nbsp;<i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">Edit {{users.firstName}}'s Profile</h1>
+     </div>
+   </div>
+ </div>
+</section>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{user.firstName}}</span><span class="text-black-50">{{user.email}}</span><span> </span></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+              <form action="/members/edit-profile/{{users._id}}" method="post">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Name</label><input name="firstName" type="text" class="form-control" placeholder="first name" value="{{users.firstName}}"></div>
+                    <div class="col-md-6"><label class="labels">Surname</label><input name="lastName" type="text" class="form-control" value="{{user.lastName}}" placeholder="surname"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Mobile Number</label><input name="memberPhone" type="text" class="form-control" placeholder="enter phone number" value="{{users.memberPhone}}"></div>
+                    <div class="col-md-12"><label class="labels">Address Line 1</label><input name="address1" type="text" class="form-control" placeholder="enter address line 1" value="{{users.address1}}"></div>
+                    <div class="col-md-12"><label class="labels">Address Line 2</label><input name="address2" type="text" class="form-control" placeholder="enter address line 2" value="{{users.address2}}"></div>
+                    <div class="col-md-12"><label class="labels">Postcode</label><input name="pinCode" type="text" class="form-control" placeholder="enter Postcode" value="{{users.pinCode}}"></div>
+                    <div class="col-md-12"><label class="labels">State</label><input name="state" type="text" class="form-control" placeholder="enter your state" value="{{users.state}}"></div>
+                    <div class="col-md-12"><label class="labels">Area</label><input name="area" type="text" class="form-control" placeholder="Enter your locality" value="{{users.area}}"></div>
+                    <div class="col-md-12"><label class="labels">Email ID</label><input name="email" type="text" class="form-control" placeholder="enter email id" value="{{users.email}}"></div>
+                    <div class="col-md-12"><label class="labels">Education</label><input name="education" type="text" class="form-control" placeholder="education qualification" value="{{users.education}}"></div>
+                    <div class="col-md-12"><label class="labels">Languages</label><input name="languages" type="text" class="form-control" placeholder="Known languages" value="{{users.education}}"></div>
+                    <div class="col-md-12"><label class="labels">What do you offer - Your services</label><input name="offer" type="text" class="form-control" placeholder="What do you offer to tourists" value="{{users.education}}"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">Country</label><input name="country" type="text" class="form-control" placeholder="country" value="{{users.country}}"></div>
+                    <div class="col-md-6"><label class="labels">State/Region</label><input name="region" type="text" class="form-control" value="{{users.region}}" placeholder="state"></div>
+              
+                </div>
+                <div class="form-group col-md-12">
+                   <label for="exampleFormControlTextarea1" class="labels">Enter your bio here</label>
+                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="bio" value="{{users.bio}}">{{users.bio}}</textarea>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
+              </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                <div class="col-md-12"><label class="labels">Experience in {{users.position}}</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
+                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

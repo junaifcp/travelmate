@@ -1,0 +1,83 @@
+<div class="card">
+                <div class="card-body d-flex">
+                  <h4 class="card-title">Tourists list - latets ten tourists </h4>
+                  <a href="#addTourist" class="btn btn-info ms-auto" >Add new Tourist</a>
+                </div>
+                <div
+                  class="comment-widgets scrollable"
+                  style="max-height: 430px"
+                >
+                  <!-- Comment Row -->
+
+                  {{#each users}}
+                  
+                  <div class="d-flex flex-row comment-row mt-0">
+                    <div class="p-2">
+                      <img
+                        src="/uploads/{{this.profilePicId}}"
+                        alt="user"
+                        width="50"
+                        class="rounded-circle"
+                      />
+                    </div>
+                    <div class="comment-text w-100">
+                      <h6 class="font-medium"><b>Name : </b> {{this.firstName}}&nbsp;{{this.lastName}}</h6>
+                      <span class="mb-3 d-block"
+                        >{{this.bio}}
+                      </span>
+                      <div class="comment-footer">
+                        <span class="text-muted float-end">{{date createdAt}}</span>
+                      {{#if users.blockStatus}}
+                        <a href="/admin/dashboard/block-user/{{this._id}}">
+                        <button id="userbtn"
+                          type="button"
+                          class="btn btn-warning btn-sm text-white"
+                        >
+                          Block
+                        </button></a>
+                        {{else}}
+                       
+                        <a href="/admin/dashboard/block-user/{{this._id}}">
+                        <button id="userbtn"
+                          type="button"
+                          class="btn btn-warning btn-sm text-white"
+                        >
+                          Unblock
+                        </button></a>
+                      {{/if}}
+                        <a href="/admin/dashboard/delete-user/{{this._id}}" onclick="return confirm('Are you sure to delete {{this.Name}}')">
+                        <button
+                          type="button"
+                          class="btn btn-danger btn-sm text-white"
+                        >
+                          Delete
+                        </button>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                </div>
+              </div>
+              <script>
+                
+                  function blockUnblock(userId){
+                     
+                       fetch("/admin/dashboard/block-user/"+userId,{
+                           method:"GET",
+                           headers:{
+                               "Content-type":"application/json"
+                           }
+                       })
+                      .then((res)=>{res.json()})
+                      .then((data)=>{
+                          console.log(data)
+                      })     
+                    }
+                  </script>    
+                  
+           
+
+
+            
+

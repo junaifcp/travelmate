@@ -1,0 +1,162 @@
+<div class="thankyou-page">
+    <div class="_header">
+        <div class="logo">
+            <img src="https://codexcourier.com/images/banner-logo.png" alt="">
+        </div>
+        <h1>Thank You!&nbsp; for choosing me</h1>
+         <h2 class="text-white">
+                <strong>Please make the payment</strong> and we will notify you further information via Email
+            </h2>
+    </div>
+    <div class="_body">
+        <div class="_box">
+
+
+    <div class="login-form">
+        <div class="alert alert-success" role="alert" id="alertStatus"></div>
+        {{#if message}}
+        <div class="alert alert-success" role="alert" id="alertStatus">{{message}}</div>
+        {{/if}}
+    <form method="post" id="checkout-form">
+        <h2 class="text-center">Payment section</h2>
+        <div class="form-group">
+            <input type="text" name="email" class="form-control" value="{{userApi.email}}">
+        </div>
+         <div class="form-group">
+            <input type="text"  name="phone" class="form-control" value="{{userApi.touristPhone}}">
+        </div>
+        <div class="form-group">
+            {{#if message}}
+            {{else}}
+           <h4>Please pay the amount of ₹ {{member.amountPay}}/-</h4>
+           {{/if}}
+           
+        </div>
+        <input type="text" name="member" id="hidden" value="{{_id}}" hidden>
+        <input type="text" name="name" id="hidden" value="{{userApi.firstName}}&nbsp;{{userApi.lastName}}" hidden>
+           <button type="submit" class="btn btn-success">MAKE PAYMENT</button>
+           <a href="/get-the-time-later?status=pending&payLater=true&id={{_id}}&amount={{member.amountPay}}"><button type="button" class="btn btn-warning">PAY LATER</button></a>
+           <button class="btn btn-danger">CANCEL</button>
+           {{!-- <p id="hidden" hidden>{{_id}}</p> --}}
+    </form>
+   
+</div>
+
+           
+        </div>
+    </div>
+    <div class="_footer">
+        <p>Having trouble? <a href="">Contact us</a> </p>
+        <a class="btn " href="/">Back to homepage</a>
+    </div>
+</div>
+  {{!-- var options = {
+        amount: 10,  // amount in the smallest currency unit
+        currency: "INR",
+        receipt: "rcp1"
+      };
+      instance.orders.create(options, function(err, order) {
+        console.log(order);
+        res.send({orderId:order.id})
+      }); --}}
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+     const element= document.getElementById('alertStatus');
+        element.style.display="none";
+    $("#checkout-form").submit((e)=>{
+        e.preventDefault()
+        const reciever=$("#checkout-form").serialize()
+        $.ajax({
+            url:'/get-the-time?'+reciever,
+            method:'post',
+            data:$("#checkout-form").serialize(),
+            success:(response)=>{
+                
+                if(response.status){
+                    console.log(response)
+                    razorpayPayment(response,reciever); 
+                }
+                   
+               
+            }
+        })
+    })
+    function razorpayPayment(order,reciever){
+        console.log(reciever)
+        var fakeURL = "http://www.example.com/t.html?"+reciever;
+        var createURL = new URL(fakeURL);
+        var userName=createURL.searchParams.get('name');
+        var userNum=createURL.searchParams.get('phone');
+        var userEmail=createURL.searchParams.get('email');
+        var options = {
+    "key": "rzp_test_SpVVwPPJ2Lq1Zq", // Enter the Key ID generated from the Dashboard
+    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "support@mytourmate.com",
+    "description": "Payment to My tourmate for talk time",
+    "image": "https://static.vecteezy.com/system/resources/previews/000/511/437/original/travel-tourism-logo-isolated-on-white-background-vector.jpg",
+    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+       
+        verifyPayment(response,order,reciever)
+    },
+    "prefill": {
+        "name": userName,
+        "email": userEmail,
+        "contact": userEmail
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+    }
+    function verifyPayment(payment,order,reciever){
+       
+        $.ajax({
+            url:'/verify-payment?'+reciever,
+            method:'post',
+            data:{
+                payment,
+                order
+            },
+            success:(response)=>{
+               element.innerText=response;
+               element.style.display="block";
+               sendMail(payment,order,reciever)
+               
+            }
+        })
+    }
+    function sendMail(payment,order,reciever){
+        $.ajax({
+         url: "/send-email?"+reciever,
+         type: 'GET',
+         
+         success: function(res) {
+        console.log(res);
+        alert(res);
+        guideMail(reciever,order)
+    }
+});
+    }
+    function guideMail(reciever,order){
+        
+        console.log(order)
+        const id=order.id;
+        console.log(id);
+        $.ajax({
+            url:"/send-guide-email?id="+id+"&"+reciever,
+            type:'GET',
+            success:function(res){
+                console.log(res);
+                alert(res);
+            }
+        })
+    }
+</script>

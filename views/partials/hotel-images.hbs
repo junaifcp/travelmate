@@ -1,0 +1,29 @@
+<div class="container gallery-container">
+
+    <h1>{{hotelName}}</h1>
+
+    <p class="page-description text-center"><i class="fa fa-map-marker" aria-hidden="true"></i>{{location}}</p>
+    
+    <div class="tz-gallery">
+
+        <div class="row">
+            {{#each hotelImg}}
+            {{!-- <div class="col-sm-12 col-md-4">
+                <a class="lightbox" href="../images/bridge.jpg">
+                    <img src="../images/bridge.jpg" alt="Bridge">
+                </a>
+            </div> --}}
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="{{url_max}}">
+                    <img src="{{url_max}}" alt="Park">
+                </a>
+            </div>
+            {{/each}}
+           
+            
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+ {{!-- feeedbak --}}
+<a class="btn btn-outline-primary rounded-circle" href="/dashboard/edit-pic"><i class="fa-solid fa-pencil"></i></a> 
+                <!--Modal Launch Button-->
+<button type="button" class="btn btn-info btn-lg openmodal" data-toggle="modal" data-target="#myModal">Write fee</button>
+<!--Division for Modal-->
+<div id="myModal" class="modal fade" role="dialog">
+    <!--Modal-->
+    <div class="modal-dialog">
+        <!--Modal Content-->
+        <div class="modal-content">
+            <!-- Modal Header-->
+            <div class="modal-header">
+                <h3>Feedback Request</h3>
+                <!--Close/Cross Button--> <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+            </div> <!-- Modal Body-->
+            <div class="modal-body text-center"> <i class="far fa-file-alt fa-4x mb-3 animated rotateIn iconOne"></i>
+                <h3>Your opinion matters</h3>
+                <h5>Help us improve our product? <strong>Give us your feedback.</strong></h5>
+                <hr>                
+            </div> <!-- Radio Buttons for Rating-->
+            <!--Text Message-->
+            <form action="/member/feedback/{{users._id}}" method="POST">
+            <div class="text-center">
+                <h4>What could we improve?</h4>
+            </div> <textarea type="textarea" name="feedback" placeholder="Your Message" rows="3" id="feedbackMsg"></textarea> <!-- Modal Footer-->
+            <div class="modal-footer"> 
+                <button type="submit" class="btn btn-primary" id="anger">Submit <i class="fa fa-paper-plane"></i> </button> 
+                <a id="anger" href="" class="btn btn-outline-primary" data-dismiss="modal">Cancel</a> 
+           </div>
+       </form>
+        </div>
+    </div>
+</div>
+
+                   {{!-- /feedback --}}

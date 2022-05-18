@@ -1,0 +1,69 @@
+<div class="content">
+            
+
+            <!-- Page Header Start -->
+            <div class="container py-5 px-2 bg-primary">
+                <div class="row py-5 px-4">
+                    <div class="col-sm-6 text-center text-md-left">
+                        <h1 class="mb-3 mb-md-0 text-white text-uppercase font-weight-bold">Contact Me</h1>
+                    </div>
+                   
+                </div>
+            </div>
+            <!-- Page Header End -->
+
+
+            <!-- Contact Start -->
+            <div class="container bg-white pt-5">
+                <div class="row px-3 pb-2">
+                    {{#if userApi.address1}}
+                    <div class="col-sm-4 text-center mb-3">
+                        <i class="fa fa-2x fa-map-marker-alt mb-3 text-primary"></i>
+                        <h4 class="font-weight-bold">Address</h4>
+                        <p>{{userApi.address1}}</p>
+                    </div>
+                    {{/if}}
+
+                    <div class="col-sm-4 text-center mb-3">
+                        <i class="fa fa-2x fa-phone-alt mb-3 text-primary"></i>
+                        <h4 class="font-weight-bold">Phone</h4>
+                        <p>{{userApi.memberPhone}}</p>
+                    </div>
+                    <div class="col-sm-4 text-center mb-3">
+                        <i class="far fa-2x fa-envelope mb-3 text-primary"></i>
+                        <h4 class="font-weight-bold">Email</h4>
+                        <p>{{userApi.email}}</p>
+                    </div>
+                </div>
+                <div class="col-md-12 pb-5">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form action="/contact/{{userApi._id}}" method="post">
+                            <div class="control-group">
+                                <input name="name" type="text" class="form-control" placeholder="Your Name" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input name="email" type="email" class="form-control"  placeholder="Your Email" required="required"  />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input name="subject" type="text" class="form-control"  placeholder="Subject" required="required" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea name="details" class="form-control" rows="8"  placeholder="Message" required="required"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn btn-primary" type="submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact End -->
+
+
+         
+        </div>

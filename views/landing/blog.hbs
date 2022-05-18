@@ -1,0 +1,70 @@
+
+
+
+{{!-- blog head --}}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/main/images/blog1.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Travel Stories <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">Travel Stories</h1>
+     </div>
+   </div>
+ </div>
+</section>
+
+{{!-- blog body main --}}
+{{>latest-posts-card}}
+<section class="ftco-section">
+  <div class="container">
+    <div class="row d-flex">
+      <h1 class="text-center pb-3">KEEP THOSE STORIES COMING | EXPLORE MORE STORIES</h1>
+      {{#if posts}}
+      {{>postBySearch}}
+      {{/if}}
+      {{#each postsPage.docs}}
+<div class="col-md-4 d-flex ftco-animate">
+ <div class="blog-entry">
+  <a href="/blog-single/{{this._id}}" class="block-20" style="background-image: url('/uploads/{{this.photo}}');">
+  </a>
+  <div class="text">
+   <div class="d-flex align-items-center mb-4 topp">
+    <div class="one">
+     <span class="day">{{day createdAt}}&nbsp;</span>
+   </div>
+   <div class="two">
+     <span class="yr">&nbsp;{{year createdAt}}</span>
+     <span class="mos">&nbsp;{{month createdAt}}</span>
+   </div>
+ </div>
+ 
+ <h3 class="heading"><a href="/blog-single/{{this._id}}">{{title}}&nbsp;&nbsp;|{{username}}</a></h3>
+ <p>{{slice desc}}...</p>
+ <p><a href="/blog-single/{{_id}}" class="btn btn-primary">Read more</a></p>
+</div>
+
+</div>
+</div>
+{{/each}}
+</div>
+<div class="row mt-5">
+  <div class="col text-center">
+    <div class="block-27">
+         <ul>
+         
+            <li><a href="/blog?page={{postsPage.prevPage}}&limit={{postsPage.limit}}">&lt;</a></li>
+           {{#times postsPage.totalPages}}
+           <li><a href="/blog?page={{this}}&limit=6">{{this}}</a></li>
+           {{/times}}
+
+            <li><a href="/blog?page={{postsPage.nextPage}}&limit={{postsPage.limit}}">&gt;</a></li>
+
+        </ul>
+    </div>
+  </div>
+</div>
+</div>
+</section>	
+</div>
+</section>

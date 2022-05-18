@@ -1,0 +1,69 @@
+<div class="card">
+    <div class="card-body d-flex">
+        <h4 class="card-title">Payments - All payments</h4>
+    </div>
+    <div class="comment-widgets">
+        <!-- Comment Row -->
+{{#if payments.docs}}
+     
+    <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">OrderId</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Accept status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each payments.docs}}
+                <tr>
+                    <th scope="row">{{counter @ index}}</th>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                    <td>{{orderId}}</td>
+                     <td>{{amount}}</td>
+                    <td>{{status}}</td>
+                    <td>{{date createdAt}}</td>
+                    {{#if acceptStatus}}
+                    <td>Accepted</td>
+                    {{else}}
+                    <td>Pending</td>
+                    {{/if}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+{{/if}}
+
+   
+    </div>
+         {{!-- pagination progress --}}
+        <div class="me-auto" style="margin-left: auto;">
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="/admin/payments-all?page={{payments.prevPage}}&limit={{payments.limit}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                 {{#times payments.totalPages}}
+                <li class="page-item"><a class="page-link" href="/admin/payments-all?page={{this}}&limit=10">{{this}}</a></li>
+               {{/times}}
+                <li class="page-item">
+                    <a class="page-link" href="/admin/payments-all?page={{payments.nextPage}}&limit={{payments.limit}}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+        
+        {{!-- /pagination progress --}}
+</div>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   {{>head}}
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  </head>
+  <body> 
+    {{#if error}}
+    {{>404}}
+    {{else}}
+    {{#if admin}}
+    {{else}}
+    {{#if member}}
+    {{>member-navbar}}
+    {{else}}
+   {{>navbar}}
+   {{/if}}
+   {{/if}}
+    {{{body}}}
+  {{#if memberStyle}}
+  {{else}}
+ {{>footer}}
+ {{/if}}
+ {{/if}}
+  {{>scripts}}
+  </body>
+</html>

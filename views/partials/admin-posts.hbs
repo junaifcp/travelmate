@@ -1,0 +1,150 @@
+<div class="card">
+  <div class="card-body d-flex">
+    <h4 class="card-title">Latest posts</h4>
+    <a href="#addPost" class="btn btn-info ms-auto">Add new post</a>
+  </div>
+  <div class="comment-widgets scrollable" style="max-height: 430px">
+    {{#each posts}}
+    <div class="">
+      <a href="" class=""><button type="button"
+          class="btn btn-danger btn-sm text-white rounded-5 rounded-top">Delete</button></a>
+    </div>
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0 ">
+        <div class="col-md-4">
+          <img src="/uploads/{{photo}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{title}}&nbsp;&nbsp;|&nbsp;{{username}}</h5>
+            <p class="card-text">{{slice desc}}</p>
+            <p class="card-text"><small class="text-muted">Author : {{username}}&nbsp;|<small class="text-muted">
+                  Category : {{categories}}&nbsp;|</small></small>&nbsp;<small class="text-muted">Date : {{date
+                createdAt}}</small></p>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="card">
+  <div class="card-body">
+    <h4 class="card-title">To Do List</h4>
+    <div class="todo-widget scrollable" style="height: 450px">
+      <ul class="list-task todo-list list-group mb-0" data-role="tasklist">
+        <li class="list-group-item todo-item" data-role="task">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="customCheck" />
+            <label class="form-check-label w-100 mb-0 todo-label" for="customCheck">
+              <span class="todo-desc fw-normal">Lorem Ipsum is simply dummy text of the printing
+                and typesetting industry.</span>
+              <span class="badge rounded-pill bg-danger float-end">Today</span>
+            </label>
+          </div>
+          <ul class="list-style-none assignedto">
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/1.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Steave" />
+            </li>
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/2.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Jessica" />
+            </li>
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/3.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka" />
+            </li>
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/4.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina" />
+            </li>
+          </ul>
+        </li>
+        <li class="list-group-item todo-item" data-role="task">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="customCheck1" />
+            <label class="form-check-label w-100 mb-0 todo-label" for="customCheck1">
+              <span class="todo-desc fw-normal">Lorem Ipsum is simply dummy text of the
+                printing</span><span class="badge rounded-pill bg-primary float-end">1 week
+              </span>
+            </label>
+          </div>
+          <div class="item-date">26 jun 2021</div>
+        </li>
+        <li class="list-group-item todo-item" data-role="task">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="customCheck2" />
+            <label class="form-check-label w-100 mb-0 todo-label" for="customCheck2">
+              <span class="todo-desc fw-normal">Give Purchase report to</span>
+              <span class="badge rounded-pill bg-info float-end">Yesterday</span>
+            </label>
+          </div>
+          <ul class="list-style-none assignedto">
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/3.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka" />
+            </li>
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/4.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina" />
+            </li>
+          </ul>
+        </li>
+        <li class="list-group-item todo-item" data-role="task">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="customCheck3" />
+            <label class="form-check-label w-100 mb-0 todo-label" for="customCheck3">
+              <span class="todo-desc fw-normal">Lorem Ipsum is simply dummy text of the printing
+              </span>
+              <span class="badge rounded-pill bg-warning float-end">2 weeks</span>
+            </label>
+          </div>
+          <div class="item-date">26 jun 2021</div>
+        </li>
+        <li class="list-group-item todo-item" data-role="task">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="customCheck4" />
+            <label class="form-check-label w-100 mb-0 todo-label" for="customCheck4">
+              <span class="todo-desc fw-normal">Give Purchase report to</span>
+              <span class="badge rounded-pill bg-info float-end">Yesterday</span>
+            </label>
+          </div>
+          <ul class="list-style-none assignedto">
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/3.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka" />
+            </li>
+            <li class="assignee">
+              <img class="rounded-circle" width="40" src="/admin/assets/images/users/4.jpg" alt="user"
+                data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina" />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div> --}}

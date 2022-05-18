@@ -1,0 +1,83 @@
+ <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/main/images/bg_1.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+      <div class="col-md-9 ftco-animate pb-5 text-center">
+       <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="index.html">Blog <i class="fa fa-chevron-right"></i></a></span> <span>Blog Single <i class="fa fa-chevron-right"></i></span></p>
+       <h1 class="mb-0 bread">Blog Details</h1>
+     </div>
+   </div>
+ </div>
+</section>
+
+{{!-- blog body --}}
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 ftco-animate py-md-5 mt-md-5">
+        <h2 class="mb-3">{{post.title}}</h2>
+        <p>
+          <img src="/uploads/{{post.photo}}" alt="Image" class="img-fluid">
+        </p>
+        <p>{{post.desc}}</p>
+       {{{post.sanitizedHtml}}}
+        <div class="tag-widget post-tag-container mb-5 mt-5">
+          <div class="tagcloud">
+            <a href="/blog/?cat={{post.categories}}" class="tag-cloud-link">{{post.categories}}</a>
+          </div>
+        </div>
+        
+        <div class="about-author d-flex p-4 bg-light">
+          
+          <div class="bio mr-5 col-md-3">
+            
+            <a href="/member/{{author._id}}"><img src="/uploads/{{author.profilePicId}}" alt="Image placeholder" class="img-fluid mb-4"></a>
+          </div>
+          <div class="desc">
+            <h3>{{author.firstName}}&nbsp;{{author.lastName}}</h3>
+            <p>{{slice author.bio}}...</p>
+          </div>
+        </div>
+      </div> <!-- .col-md-8 -->
+      <div class="col-lg-4 sidebar ftco-animate bg-light py-md-5">
+        <div class="sidebar-box pt-md-5">
+          <form action="#" class="search-form">
+            <div class="form-group">
+              <span class="icon fa fa-search"></span>
+              <input type="text" class="form-control" placeholder="Search...">
+            </div>
+          </form>
+        </div>
+        <div class="sidebar-box ftco-animate">
+          <div class="categories">
+            <h3>Categories</h3>
+            {{#each category}}
+            {{#if this}}
+            <li><a href="/blog/?cat={{this.name}}">{{this.name}}<span>({{this.count}})</span></a></li>
+            {{/if}}
+            {{/each}}
+          
+          </div>
+        </div>
+
+        <div class="sidebar-box ftco-animate">
+          <h3>Recent Blog</h3>
+         {{#each recent}}
+          <div class="block-21 mb-4 d-flex">
+            <a class="blog-img mr-4" style="background-image: url(/uploads/{{photo}});" href="/blog-single/{{_id}}"></a>
+            <div class="text">
+              <h3 class="heading"><a href="/blog-single/{{_id}}">{{title}}</a></h3>
+              <div class="meta">
+                <div><a href="#"><span class="fa fa-calendar"></span>{{month createdAt}} {{day createdAt}}, {{year createdAt}}</a></div>
+                <div><a href="#"><span class="fa fa-user"></span>{{username}}</a></div>
+                {{!-- <div><a href="#"><span class="fa fa-comment"></span> 19</a></div> --}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>    
+      </div>
+
+    </div>
+  </div>
+</section> <!-- .section -->	

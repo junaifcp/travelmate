@@ -1,0 +1,301 @@
+<div class="hero-wrap js-fullheight" style="background-image: url('/main/images/mainImg.jpg');background-color:rgba(82, 80, 80, 0.502);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
+				<div class="col-md-7 ftco-animate">
+					<span class="subheading">Welcome to My Tour Mate</span>
+					<h1 class="mb-4">Discover Your Favorite Places and Find Your Travel Guide</h1>
+					<p class="caps">Travel to the any corner of India, without going around in circles</p>
+				</div>
+				{{!-- <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+					<span class="fa fa-play"></span>
+				</a> --}}
+			</div>
+		</div>
+	</div>
+
+		{{!--  --}}
+
+	<div class='container-fluid mx-auto mt-5 mb-5 col-12' style="text-align: center">
+    <div class="hd"><h1><b>Are you looking for a guide ?</b></h1></div>
+    <p>Follow the steps below and create your own account <br /> to find a guide for making your leisure more fun</p>
+    <div class="row" style="justify-content: center">
+        <div class="card col-md-3 col-12">
+            <div class="card-content">
+                <div class="card-body"> <img class="imgMain" src="/images/img-222.jpg" />
+                    <div class="shadow"></div>
+                    <div class="card-titleMain"> Step 1: Create an account</div>
+                    <div class="card-subtitle">
+                        <p>Create your account for free and explore best travel destinations, hotels, tour guides all over the India for free. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+		 <div class="card col-md-3 col-12">
+            <div class="card-content">
+                <div class="card-body"> <img class="imgMain" src="/images/img111.jpg" />
+                    <div class="shadow"></div>
+                    <div class="card-titleMain"> Step 2: Choose where do you want to travel</div>
+                    <div class="card-subtitle">
+                        <p>Create your account for free and explore best travel destinations, hotels, tour guides all over the India for free. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+		 <div class="card col-md-3 col-12">
+            <div class="card-content">
+                <div class="card-body"> <img class="imgMain" src="/images/img333.jpg" />
+                    <div class="shadow"></div>
+                    <div class="card-titleMain"> Step 3: Contact with the guides</div>
+                    <div class="card-subtitle">
+                        <p>After when you choose your guide you can connect wth the and buy thei time to talk for getting know more about the details</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+   
+</div>
+
+	
+         <!-- Room Start -->
+        <div class="container-xxl pb-2">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+           
+                    <h1 class="mb-5 text-center">Recently Added <span class="text-primary text-uppercase">Guides</span> who offer private and group guided tours</h1>
+                </div>
+                <div class="row g-4">
+					{{#each members}}
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" id="img-card" src="/uploads/{{profilePicId}}" alt="">   
+                            </div>
+                            <div class="p-4 mt-2">
+                               
+                                <div class="d-flex mb-3">
+									{{#if postCount}}
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-folder mx-2"></i>{{postCount}}&nbsp;Posts</small>
+									{{/if}}
+									{{#if feedbacks}}
+								
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-comments mx-2"></i>{{feedCount feedbacks}}&nbsp;feedbacks</small>
+						
+									{{/if}}
+                                    {{!-- <small class="fa fa-star text-primary px-4">4/5</small> --}}
+                                </div>
+								<h3><a href="#">{{userName}}</a></h3>
+                                <p class="text-body"><b>Location: </b>{{place}},&nbsp;{{state}}</p>
+								<p class="text-body"><b>Languages: </b>{{languages}}</p>
+								<p class="text-body"><b>What I offer: </b>{{offer}}</p>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/member/{{_id}}">Show profile</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="/contact/{{_id}}">Contact Now</a>
+                                </div>
+                            </div>
+                        </div>
+					</div>           
+			  
+				{{/each}}
+				
+				 </div>
+				 <p class="mb-0 mt-5 text-center"><a href="/show-all-members/?page=1&limit=6" class="btn btn-outline-primary px-4 py-3">Show More</a></p>
+            </div>
+        </div>
+        <!-- Room End -->
+
+			{{>guide-need-card}}
+				<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center pb-4">
+					<div class="col-md-12 heading-section text-center ftco-animate">
+						{{!-- <span class="subheading">Destination</span> --}}
+						<h2 class="mb-4">Types of tourism | Destinations in India</h2>
+					</div>
+				</div>
+				<div class="row">
+						{{#each types}}
+					<div class="col-md-4 ftco-animate">
+						<div class="project-wrap">
+							<a href="/destination-single/{{name}}" class="img" style="background-image: url(/uploads/{{photo}});">
+								<span class="price">{{name}}</span>
+							</a>
+							<div class="text p-4">
+								<span class="days">{{count}} Attractions</span>
+								<h3><a href="#">{{name}}</a></h3>
+								<p class="location">{{slice desc}}</p>
+								
+							</div>
+						</div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+		</section>
+			{{>tourist-feedbacks}}
+		{{!-- /guides cards --}}
+
+	
+		
+		{{!-- Hotels section --}}
+
+{{!-- <section class="ftco-section">
+ <div class="container">
+	<div class="row justify-content-center pb-4">
+		<div class="col-md-12 heading-section text-center ftco-animate">
+			<span class="subheading">HOTELS</span>
+			<h2 class="mb-4">Most rated hotels</h2>
+		</div>
+	</div>
+  <div class="row">
+   <div class="col-md-4 ftco-animate">
+    <div class="project-wrap hotel">
+     <a href="#" class="img" style="background-image: url(/main/images/hotel-resto-1.jpg);">
+      <span class="price">$200/person</span>
+    </a>
+    <div class="text p-4">
+      <p class="star mb-2">
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+      </p>
+      <span class="days">8 Days Tour</span>
+      <h3><a href="#">Manila Hotel</a></h3>
+      <p class="location"><span class="fa fa-map-marker"></span> Manila, Philippines</p>
+      <ul>
+       <li><span class="flaticon-shower"></span>2</li>
+       <li><span class="flaticon-king-size"></span>3</li>
+       <li><span class="flaticon-mountains"></span>Near Mountain</li>
+     </ul>
+   </div>
+ </div>
+</div>
+
+</div>
+</div>
+</section> --}}
+
+		{{!-- /hotels section --}}
+
+		{{!-- <section class="ftco-section testimony-section bg-bottom" style="background-image: url(/main/images/bg_1.jpg);">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row justify-content-center pb-4">
+					<div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+						<span class="subheading">Testimonial</span>
+						<h2 class="mb-4">Tourist Feedback</h2>
+					</div>
+				</div>
+				<div class="row ftco-animate">
+					<div class="col-md-12">
+						<div class="carousel-testimony owl-carousel">
+							
+							
+							<div class="item">
+								<div class="testimony-wrap py-4">
+									<div class="text">
+										<p class="star">
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+											<span class="fa fa-star"></span>
+										</p>
+										<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+										<div class="d-flex align-items-center">
+											<div class="user-img" style="background-image: url(/main/images/person_2.jpg)"></div>
+											<div class="pl-3">
+												<p class="name">Roger Scott</p>
+												<span class="position">Marketing Manager</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> --}}
+
+
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center pb-4">
+					<div class="col-md-12 heading-section text-center ftco-animate">
+						<span class="subheading">Our Blog</span>
+						<h2 class="mb-4">ADVENTURES | STORIES | PEOPLE</h2>
+						<p>EXPLORE WITH EMOTION. LIVE FOR THE JOURNEY.</p>
+
+					</div>
+				</div>
+				<div class="row d-flex">
+					{{#each posts}}
+					<div class="col-md-4 d-flex ftco-animate">
+						<div class="blog-entry">
+							<a href="/blog-single/{{_id}}" class="block-20" style="background-image: url('/uploads/{{photo}}');">
+							</a>
+							<div class="text">
+								<div class="d-flex align-items-center mb-4 topp">
+									<div class="one">
+										<span class="day">{{day createdAt}}&nbsp;</span>
+									</div>
+									<div class="two">
+										<span class="yr">&nbsp;{{year createdAt}}</span>
+										<span class="mos">&nbsp;{{month createdAt}}</span>
+									</div>
+								</div>
+								<h3 class="heading"><a href="#">{{title}}</a></h3>
+								<p>{{postSlice desc}}</p>
+								<p><a href="#" class="btn btn-primary">Read more</a></p>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+				</div>
+
+					<p class="mb-0 text-center"><a href="/blog/?page=1&limit=6" class="btn btn-primary px-4 py-3">Show More</a></p>
+		
+				
+			</div>
+		</section>
+
+		<section class="ftco-intro ftco-section ftco-no-pt">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 text-center">
+						<div class="img"  style="background-image: url(/main/images/bg_2.jpg);">
+							<div class="overlay"></div>
+							<h2>“Life is either a daring adventure or nothing at all” ~ Helen Keller</h2>
+							<p>If Helen Keller can look at life as a great adventure, what excuse do the rest of us have? Take a chance and live life to the fullest. When we are at our most daring is when we feel the most fulfillment.</p>
+							<p class="mb-0"><a href="/contact" class="btn btn-primary px-4 py-3">Ask A Question</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+ <script>
+$(document).ready(function(){
+    $("#testimonial-slider").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,3],
+        itemsDesktopSmall:[980,2],
+        itemsTablet:[768,2],
+        itemsMobile:[650,1],
+        pagination:true,
+        navigation:false,
+        slideSpeed:1000,
+        autoPlay:true
+    });
+ });
+ </script>
+  <script>
+	
+	</script>
+

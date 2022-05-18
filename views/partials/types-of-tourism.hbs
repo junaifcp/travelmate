@@ -1,0 +1,30 @@
+
+	<div class="container py-2">
+		<div class="h1 text-start text-dark" id="pageHeaderTitle"><b> TYPES OF TOURISM </b></div>
+		{{!-- <h4 class="text-muted">Because stories are nice, but they don’t get you places</h4> --}}
+	{{#each catName}}
+		<article class="postcard light blue">
+			<a class="postcard__img_link" href="/destination-single/{{name}}">
+				<img class="postcard__img" src="/uploads/{{photo}}" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="/destination-single/{{name}}">{{name}}</a></h1>
+				{{!-- <div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>{{month createdAt}}&nbsp;{{day createdAt}}th&nbsp;{{year createdAt}}
+					</time>
+				</div> --}}
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">{{desc}}</div>
+				<ul class="postcard__tagbox">
+					<a href="/blog?cat={{categories}}"><li class="tag__item play blue"><i class="fas fa-tag mr-2"></i>{{name}}</li></a>
+					<a href="/member/{{userId}}"><li class="tag__item play blue"><i class="fa fa-list-alt mr-2"></i>{{count}}&nbsp;&nbsp;Destinations</li></a>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fa fa-eye mr-2"></i>View all</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+    {{/each}}
+        </div>
+       

@@ -1,0 +1,61 @@
+
+
+<div class="card" id="addGuides">
+    <h1 class="text-center pt-3">Add new category for destination</h1>
+                <div class="card-body d-flex mx-auto">
+                  <h4 class="card-title">Add Category name, Description for updating category details </h4>
+                </div>
+                <div
+                  class="comment-widgets"
+                  {{!-- style="max-height: 530px" --}}
+                >
+                  <div class="d-flex flex-row comment-row mt-0">
+
+                         <!-- Contact Start -->
+            <div class="container bg-white pt-3 py-5">
+                <div class="col-md-12 pb-5">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                     <form action="/api/destCategories" method="POST" enctype="multipart/form-data">
+
+                        <div class="row register-form mt-5">
+                        
+                            <div class="col-md-8 mx-auto">
+                                <div class="form-group">
+                                    <input name="name" type="text" class="form-control" placeholder="Name of the Category *"
+                                        value="" />
+                                </div>
+                                
+                                
+                                <div class="form-group">
+                                    <textarea name="desc" id="" cols="30" rows="10" class="form-control" placeholder="Category description *"></textarea>
+                                  
+                                </div>
+                                <div class="form-group">
+                                    <input name="photo" type="file" class="form-control" placeholder="Category image *"
+                                        value="" />
+                                </div>
+                                
+                                
+
+                                
+                                
+                            </div>
+                                    <div class="text-center">
+
+                                    <input type="submit" class="btn btn-info mt-5" value="Add Category" />
+                                    </div>
+                                
+                        </div>
+                    </form>
+
+                    </div>
+                </div>
+            </div>
+                  </div>
+   
+                  <!-- Comment Row -->
+                  
+                </div>
+              </div>
+              

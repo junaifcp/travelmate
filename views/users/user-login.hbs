@@ -1,0 +1,59 @@
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card" id="login-card">
+        <div class="p-3 border-bottom d-flex align-items-center justify-content-center">
+            <h5>Login to Mytourmate</h5>
+        </div>
+        <div class="p-3 px-4 py-4 border-bottom">
+            <form action="/login" method="POST" id="form">
+             <input name="username" type="text" class="form-control mb-2" placeholder="Email/Username" />
+             <span id="errorEmail" style="color: red;"></span>
+            <div class="form"> 
+                <input name="password" type="text" class="form-control" placeholder="Password" /> 
+                <span id="errorPassword" style="color: red;"></span>
+                <a href="#">Forgot?</a> 
+                </div> 
+                <button type="submit" class="btn btn-danger btn-block continue">Continue</button>
+            <div class="d-flex justify-content-center align-items-center mt-3 mb-3"> <span class="line"></span> <small class="px-2 line-text">OR</small> <span class="line"></span> </div> <button class="btn btn-danger btn-block continue facebook-button d-flex justify-content-start align-items-center"> <i class="fa fa-facebook ml-2"></i> <span class="ml-5 px-4">Continue with facebook</span> </button> <button class="btn btn-danger btn-block continue google-button d-flex justify-content-start align-items-center"> <i class="fa fa-google ml-2"></i> <span class="ml-5 px-4">Continue with Google</span> </button>
+            </form>
+        </div>
+        <div class="p-3 d-flex flex-row justify-content-center align-items-center member"> <span>Not a member? </span> <a href="/signup" class="text-decoration-none ml-2">SIGNUP</a> </div>
+    </div>
+</div>
+    <script>
+      
+        const email=document.getElementById("username");
+        const password=document.getElementById("password");
+        const form=document.getElementById("form");
+        const error1=document.getElementById("errorEmail");
+        const error2=document.getElementById("errorPassword")
+ 
+        form.addEventListener('submit',(e)=>{
+          let message1=[]
+          let message2=[]
+      
+          if(email.value===''||email.value==null){
+            message1.push('Please enter ther email')
+        }else if(email.value.indexOf('@')<=0){
+          message1.push('Invaild Email address')
+        }else if(email.value.charAt(email.value.length-4)!='.'){
+          message1.push('Email format is Incorrect, enter valid email')
+
+        }
+        
+          if(password.value===''||password.value==null){
+            message2.push('Please enter the password')
+          }
+           else if(password.value.length<3){
+            message2.push('password must be atleast 3 character')
+          }
+          if(message1.length>0){
+           e.preventDefault();
+           error1.innerText=message1.join('  ')
+          }
+          if(message2.length>0){
+            e.preventDefault()
+            error2.innerText=message2.join('  ')
+          }
+        })
+       
+      </script>

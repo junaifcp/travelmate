@@ -1,0 +1,124 @@
+<div class="content ">
+
+
+    <!-- Carousel Start -->
+    <div class="container p-0">
+        <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="/profile/img/carousel-1.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="mb-3 text-white font-weight-bold">{{userApi.firstName}} || {{userApi.position}}</h2>
+                       
+                        <a href="" class="btn btn-lg btn-outline-light mt-4">Contact me</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="/profile/img/carousel-2.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-white font-weight-bold">{{userApi.email}}</h2>
+                        {{!-- <div class="d-flex">
+                            <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                            <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                            <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                        </div> --}}
+                        <a href="/contact/{{userApi._id}}" class="btn btn-lg btn-outline-light mt-4">My stories</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="/profile/img/carousel-3.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-white font-weight-bold">Welcome to the world of travellers</h2>
+                        <div class="d-flex">
+                            <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                            <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                            <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                        </div>
+                        <a href="/contact/{{userApi._id}}" class="btn btn-lg btn-outline-light mt-4">Hire me</a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <section>
+        <div class="container bg-white pt-3 my-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="profile">
+                        <h1 class="page-header">{{userApi.firstName}}&nbsp;{{userApi.lastName}}</h1>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="/uploads/{{userApi.profilePicId}}" class="img-thumbnail img-fluid" alt="">
+                            </div>
+                            <div class="col-md-5">
+                                <ul>
+                                    <li><strong>Name:</strong>{{userApi.firstName}}&nbsp;{{userApi.lastName}}</li>
+                                    <li><strong>Email:</strong>{{userApi.email}}</li>
+                                    <li><strong>City:</strong>{{userApi.place}}</li>
+                                    <li><strong>State:</strong>{{userApi.state}}</li>
+                                </ul>
+                            </div>
+                        </div><br><br>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <p>{{userApi.bio}}</p>
+                                {{>feedback-modal}}
+                                <a href="/get-my-time/{{userApi._id}}"><button type="button"
+                                        class="btn btn-primary btn-lg openmodal">Lets Talk</button></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>
+    <!-- Blog List Start -->
+    {{#each posts}}
+    <div class="container bg-white pt-5">
+        <div class="row blog-item px-3 pb-5">
+            <div class="col-md-5">
+                <img class="img-fluid mb-4 mb-md-0" src="/uploads/{{photo}}" alt="Image">
+            </div>
+            <div class="col-md-7">
+                <h3 class="mt-md-4 px-md-3 mb-2 py-2 bg-white font-weight-bold">{{title}}</h3>
+                <div class="d-flex mb-3">
+                    <small class="mr-2 text-muted"><i class="fa fa-calendar-alt"></i>{{date createdAt}}</small>
+                    <small class="mr-2 text-muted"><i class="fa fa-folder"></i>{{categories}}</small>
+
+                </div>
+                <p>
+                    {{slice desc}}...
+                </p>
+
+                <a class="btn btn-link p-0" href="/blog-single/{{_id}}">Read More <i class="fa fa-angle-right"></i></a>
+
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+
+    <!-- Blog List End -->
+
+
+    <!-- Footer Start -->
+
+    <!-- Footer End -->
+</div>
+</div>
+
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>

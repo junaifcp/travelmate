@@ -1,0 +1,69 @@
+
+
+<div class="card" id="addPost">
+    <h1 class="text-center pt-3">Add new destination</h1>
+                <div class="card-body d-flex mx-auto">
+                  <h4 class="card-title">Add a destination related to travel Industry</h4>
+                 
+                </div>
+                <div
+                  class="comment-widgets scrollable"
+                  style="max-height: 100vh"
+                >
+         
+                  <div class="d-flex flex-row comment-row mt-0">
+
+                         <!-- Contact Start -->
+            <div class="container bg-white pt-3 py-5">
+         
+                <div class="col-md-12 pb-5">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form action="/api/destinations" method="POST" enctype="multipart/form-data">
+                             <div class="control-group">
+                                <input type="text" name="username" value="Admin" class="form-control" id="name" readonly="readonly" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" name="title" class="form-control" id="name" placeholder="Title" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            
+                            <div class="control-group">
+                                <textarea class="form-control" name="desc" rows="8" id="message" placeholder="Post description" ></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control" name="markdown" rows="8" id="message" placeholder="#BIG DATA" ></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            
+                             <div class="form-group">
+                                    <select class="form-control" name="categories">
+                                        <option class="hidden" selected disabled>Please select the category</option>
+                                        {{#each categories}}
+                                        <option>{{name}}</option>
+                                       {{/each}}
+                                    </select>
+                                </div>
+                             <div class="control-group">
+                                <input type="file" name="images" class="form-control" id="formFile" multiple />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <div class="text-center">
+
+                                <button class="btn btn-info" type="submit" id="">Add post</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+                  </div>
+   
+                  <!-- Comment Row -->
+                  
+                </div>
+              </div>
+              

@@ -1,0 +1,22 @@
+	{{#each posts}}
+					<div class="col-md-4 d-flex ftco-animate">
+						<div class="blog-entry">
+							<a href="/blog-single/{{_id}}" class="block-20" style="background-image: url('/uploads/{{photo}}');">
+							</a>
+							<div class="text">
+								<div class="d-flex align-items-center mb-4 topp">
+									<div class="one">
+										<span class="day">{{day createdAt}}&nbsp;</span>
+									</div>
+									<div class="two">
+										<span class="yr">&nbsp;{{year createdAt}}</span>
+										<span class="mos">&nbsp;{{month createdAt}}</span>
+									</div>
+								</div>
+								<h3 class="heading"><a href="#">{{title}}</a></h3>
+								<p>{{postSlice desc}}</p>
+								<p><a href="#" class="btn btn-primary">Read more</a></p>
+							</div>
+						</div>
+					</div>
+				{{/each}}

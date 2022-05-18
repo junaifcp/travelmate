@@ -1,0 +1,226 @@
+<div class="content ">
+
+    <!-- Carousel Start -->
+    <div class="container p-0">
+        <div id="blog-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="/profile/img/carousel-1.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="mb-3 text-white font-weight-bold">{{userApi.firstName}} || {{userApi.position}}</h2>
+                        <div class="d-flex text-white">
+                            <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                            <small class="mr-2"><i class="fa fa-folder"></i> My travel</small>
+                            <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                        </div>
+                        <a href="" class="btn btn-lg btn-outline-light mt-4">Contact me</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="/profile/img/carousel-2.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-white font-weight-bold">{{users.email}}</h2>
+                        <div class="d-flex">
+                            <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                            <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                            <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                        </div>
+                        <a href="" class="btn btn-lg btn-outline-light mt-4">My stories</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="/profile/img/carousel-3.jpg" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-white font-weight-bold">Welcome to the world of travellers</h2>
+                        <div class="d-flex">
+                            <small class="mr-2"><i class="fa fa-calendar-alt"></i> 01-Jan-2045</small>
+                            <small class="mr-2"><i class="fa fa-folder"></i> Web Design</small>
+                            <small class="mr-2"><i class="fa fa-comments"></i> 15 Comments</small>
+                        </div>
+                        <a href="" class="btn btn-lg btn-outline-light mt-4">Hire me</a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#blog-carousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#blog-carousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    <section>
+        <div class="container bg-white pt-3 my-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="profile">
+                        <h1 class="page-header">{{userApi.firstName}}&nbsp;{{userApi.lastName}}</h1>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="/uploads/{{userApi.profilePicId}}" class="img-thumbnail img-fluid" alt="">
+                            </div>
+                            <div class="col-md-5">
+                                <ul>
+                                    <li><strong>Name:</strong>{{userApi.firstName}}&nbsp;{{userApi.lastName}}</li>
+                                    <li><strong>Email:</strong>{{userApi.email}}</li>
+                                    <li><strong>City:</strong>{{userApi.place}}</li>
+                                    <li><strong>State:</strong>{{userApi.state}}</li>
+                                    <li><strong>Gender:</strong>Male</li>
+                                </ul>
+                            </div>
+                        </div><br><br>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <p>{{users.bio}}</p>
+                                {{>feedback-modal}}
+                                {{!-- <a href="/get-my-time/{{users._id}}"><button type="button"
+                                        class="btn btn-primary btn-lg openmodal">Get my time</button></a> --}}
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </section>
+    <!-- Blog List Start -->
+
+    <div class="container bg-white py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="m2-4">Get my time</h2><br>
+                <p>Get my time is the platform where you can talk with me and share the details about the destinations
+                    and more travel tips and tricks</p>
+                    <p>Most of the trips are gnone flope because of the lack of the communication between the guides and the tourists. With this platform you can know about the communication skills of the guides and valuate them with their skills to entertain you</p>
+
+            </div>
+            <div class="col-md-12">
+                <h2>Frequently asked questions?</h2>
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                How does it works ? 
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body"><p>
+                                You must have lots of queries about the destination where you are going to travel. There are hundreds of guides are here to answer your questions. You just need to login and connect with them, then our guides will call you.
+                            </p>
+                            <p>
+                              We know you must have worried about the dangers hiding in each locality. Your safety is out atmost priority and you will be safe in our hands. Follow the steps below to connect a guide
+                            </p>
+                            <p><b>Step 1: </b>Fill up the form above with your name, prefered date and the time. If you are not loged in please login or create your account</p>
+                            <p><b>Step 2: </b>Then you will be redirected to the payment section where you want to provide the registration fee for the talk time. After the transaction you will recieve an email with payment details and your guide information fron our side</p>
+                            <p><b>Step 3: </b>Then you will be notified with exact time after our guide accepted the request</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                aria-controls="flush-collapseTwo">
+                                Can I cancel the request anytime ?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body"><ul><li>Ofcaurse you can cancel your request before 24 hours from the date.</li></ul></div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                                What are the benifits of the call?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body"><ul>
+                                <li>You can get all the local details about the destination</li>
+                                <li>You can ask for a date to travel </li>
+                                <li>You will be known about the services provided by the guides</li>
+                                <li>If you are a native speaker and test your communication with them </li>
+                            </ul></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade show active shadow p-3 mb-5 bg-white rounded" id="v-pills-1" role="tabpanel"
+                aria-labelledby="v-pills-nextgen-tab">
+                <form action="/get-my-time/{{_id}}" method="POST" class="search-property-1">
+                    <div class="row no-gutters">
+                        <div class="col-md d-flex">
+                            <div class="form-group p-4 border-0">
+                                <label for="#">Name</label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="fa fa-user"></span></div>
+                                    <input type="text" name="userName" class="form-control" placeholder="Enter name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md d-flex">
+                            <div class="form-group p-4">
+                                <label for="#">Preferd date</label>
+                                <div class="form-field">
+                                    <div class="icon"><span class="fa fa-calendar"></span></div>
+                                    <input type="text" name="date" class="form-control checkin_date"
+                                        placeholder="Add date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md d-flex">
+                            <div class="form-group p-4">
+                                <label for="#">Choose time</label>
+                                <div class="form-field">
+                                    <div class="select-wrap">
+                                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                        <select name="time" id="" class="form-control">
+                                            <option value="6 AM-12 PM">6 AM-12 PM</option>
+                                            <option value="12 PM-6 PM">12 PM-6 PM</option>
+                                            <option value="6 PM-10 PM">6 PM-10 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md d-flex">
+                            <div class="form-group d-flex w-100 border-0">
+                                <div class="form-field w-100 align-items-center d-flex">
+                                    <input type="submit" value="Register"
+                                        class="align-self-stretch form-control btn btn-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Blog List End -->
+
+
+    <!-- Footer Start -->
+
+    <!-- Footer End -->
+</div>
+</div>
+
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>

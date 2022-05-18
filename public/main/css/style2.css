@@ -1,0 +1,44 @@
+
+
+.card {
+    cursor: pointer;
+    /* transition: transform 0.4s ease-in-out; */
+    
+}
+
+
+
+.card.hover,
+.card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    color: white;
+    background-color: rgb(247, 187, 76);
+    /* transform: scale(1.1); */
+    
+}
+
+
+.imgMain {
+    margin-bottom: 35px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222)
+}
+
+.card-titleMain {
+    font-weight: 600
+}
+
+
+
+.ft {
+    margin-top: 25px
+}
+
+.chk {
+    margin-bottom: 5px
+}
+
+.rck {
+    margin-top: 20px;
+    padding-bottom: 15px
+}

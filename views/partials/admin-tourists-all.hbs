@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-body d-flex">
+        <h4 class="card-title">Tourists list - latets ten tourists </h4>
+        <a href="" class="btn btn-info ms-auto">Add new Tourist</a>
+    </div>
+    <div class="comment-widgets">
+        <!-- Comment Row -->
+
+        {{#each tourists.docs}}
+
+        <div class="d-flex flex-row comment-row mt-0">
+            <div class="p-2">
+                <img src="/uploads/{{profilePicId}}" alt="user" width="50" class="rounded-circle" />
+            </div>
+            <div class="comment-text w-100">
+                <h6 class="font-medium"><b>Name : </b> {{firstName}}&nbsp;{{lastName}}</h6>
+                <h6 class="font-medium"><b>Email : </b>{{email}} </h6>
+                <h6 class="font-medium"><b>Phone : </b>{{touristPhone}} </h6>
+
+                <h6 class="font-medium"><b>Gender : </b> {{gender}}</h6>
+                <h6 class="font-medium"><b>Country : </b>{{country}},{{state}} </h6>
+                <span class="mb-3 d-block">{{this.bio}}
+                </span>
+                <div class="comment-footer">
+                    <span class="text-muted float-end">{{date createdAt}}</span>
+                    {{#if users.blockStatus}}
+                    <a href="/admin/dashboard/block-user/{{this._id}}">
+                        <button id="userbtn" type="button" class="btn btn-warning btn-sm text-white">
+                            Block
+                        </button></a>
+                    {{else}}
+
+                    <a href="/admin/dashboard/block-user/{{this._id}}">
+                        <button id="userbtn" type="button" class="btn btn-warning btn-sm text-white">
+                            Unblock
+                        </button></a>
+                    {{/if}}
+                    <a href="/admin/dashboard/delete-user/{{this._id}}"
+                        onclick="return confirm('Are you sure to delete {{this.Name}}')">
+                        <button type="button" class="btn btn-danger btn-sm text-white">
+                            Delete
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+   
+    </div>
+         {{!-- pagination progress --}}
+        <div class="me-auto" style="margin-left: auto;">
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="/admin/tourists-all?page={{tourists.prevPage}}&limit={{tourists.limit}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                 {{#times tourists.totalPages}}
+                <li class="page-item"><a class="page-link" href="/admin/tourists=all?page={{this}}&limit=10">{{this}}</a></li>
+               {{/times}}
+                <li class="page-item">
+                    <a class="page-link" href="/admin/tourists-all?page={{tourists.nextPage}}&limit={{tourists.limit}}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        </div>
+        
+        {{!-- /pagination progress --}}
+</div>

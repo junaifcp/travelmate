@@ -1,0 +1,127 @@
+
+        <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/main/images/bg_1.jpg');">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+                    <div class="col-md-9 ftco-animate pb-5 text-center">
+                        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+                                        class="fa fa-chevron-right"></i></a></span> <span>Members<i
+                                    class="fa fa-chevron-right"></i></span></p>
+                        <h1 class="mb-0 bread">Members list</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ftco-section ftco-no-pb">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="search-wrap-1 ftco-animate">
+                            <form action="/show-all-members" method="POST" class="search-property-1">
+                                <div class="row no-gutters">
+                                    <div class="col-lg d-flex">
+                                        <div class="form-group p-4 border-0">
+                                            <label for="#">Search Guides by Destinations</label>
+                                            <div class="form-field">
+                                                <div class="icon"><span class="fa fa-search"></span></div>
+                                                <input type="text" name="destination" class="form-control"
+                                                    placeholder="Search place">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg d-flex">
+                                        <div class="form-group d-flex w-100 border-0">
+                                            <div class="form-field w-100 align-items-center d-flex">
+                                                <input type="submit" value="Search"
+                                                    class="align-self-stretch form-control btn btn-primary">
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+		
+       
+         <!-- Room Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                  
+                    <h1 class="mb-5">Local guides who offer <span class="text-primary text-uppercase">private and group guided</span> tours in different languages</h1>
+                </div>
+                <div class="row g-4">
+                
+                    	{{#each members.docs}}
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" id="img-card" src="/uploads/{{profilePicId}}" alt="">   
+                            </div>
+                            <div class="p-4 mt-2">
+                               
+                                <div class="d-flex mb-3 ">
+								
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-folder mx-2"></i>{{postCount}}&nbsp;Posts</small>
+	
+									
+								
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-comments mx-2"></i>{{feedbacks.length}}&nbsp;feedbacks</small>
+						
+	
+                                 
+                                </div>
+								<h3><a href="#">{{userName}}</a></h3>
+                               <p class="text-body"><b>Location: </b>{{place}}&nbsp;{{state}}</p>
+								<p class="text-body"><b>Languages: </b>{{languages}}</p>
+								<p class="text-body"><b>What I offer: </b>{{offer}}</p>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="/member/{{_id}}">Show profile</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="/members/contact/{{_id}}">Contact Now</a>
+                                </div>
+                            </div>
+                        </div>
+					</div>           
+
+				{{/each}}
+				
+				 </div>
+            </div>
+        </div>
+        {{!-- pagination --}}
+        <div class="row mt-3">
+<div class="col text-center">
+    <div class="block-27">
+        <ul>
+         
+            <li><a href="/show-all-members?page={{members.prevPage}}&limit={{members.limit}}">&lt;</a></li>
+           {{#times members.totalPages}}
+           <li><a href="/show-all-members?page={{this}}&limit=6">{{this}}</a></li>
+           {{/times}}
+
+            <li><a href="/show-all-members?page={{members.nextPage}}&limit={{members.limit}}">&gt;</a></li>
+
+        </ul>
+    </div>
+</div>
+</div>
+        <!-- Room End -->
+
+		<section class="ftco-intro ftco-section ftco-no-pt">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-md-12 text-center">
+						<div class="img"  style="background-image: url(/main/images/bg_2.jpg);">
+							<div class="overlay"></div>
+							<h2>We Are Pacific A Travel Agency</h2>
+							<p>We can manage your dream building A small river named Duden flows by their place</p>
+							<p class="mb-0"><a href="/contact" class="btn btn-primary px-4 py-3">Ask A Question</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>

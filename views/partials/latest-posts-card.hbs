@@ -1,0 +1,34 @@
+<section class="light">
+	<div class="container py-2">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle">STORIES & ADVENTURES</div>
+		<div class="h1 text-start text-dark" id="pageHeaderTitle">LATEST POSTS | TRAVEL GUIDES </div>
+		<h4 class="text-muted">Because stories are nice, but they don’t get you places</h4>
+	{{#each latest}}
+		<article class="postcard light blue">
+			<a class="postcard__img_link" href="/blog-single/{{_id}}">
+				<img class="postcard__img" src="/uploads/{{photo}}" alt="Image Title" />
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title blue"><a href="#">{{title}}</a></h1>
+				<div class="postcard__subtitle small">
+					<time datetime="2020-05-25 12:00:00">
+						<i class="fas fa-calendar-alt mr-2"></i>{{month createdAt}}&nbsp;{{day createdAt}}th&nbsp;{{year createdAt}}
+					</time>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt">{{slice desc}}</div>
+				<ul class="postcard__tagbox">
+					<a href="/blog?cat={{categories}}"><li class="tag__item"><i class="fas fa-tag mr-2"></i>{{this.categories}}</li></a>
+					<a href="/member/{{userId}}"><li class="tag__item"><i class="fas fa-user mr-2"></i>{{username}}</li></a>
+					<li class="tag__item play blue">
+						<a href="#"><i class="fas fa-clock mr-2"></i>{{date createdAt}}</a>
+					</li>
+				</ul>
+				{{log this.id}}
+			</div>
+		</article>
+		{{/each}}
+		
+		
+
+	

@@ -1,0 +1,51 @@
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Mytourmate<span>Just beyond the boundaries</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+					<li class="nav-item "><a href="/about" onclick="addClass()" class="nav-link">About</a></li>
+					<li class="nav-item "><a href="/destination" onclick="addClass()" class="nav-link">Destinations</a></li>
+					<li class="nav-item"><a href="/hotel" onclick="addClass()" class="nav-link">Hotel</a></li>
+					<li class="nav-item"><a href="/blog" onclick="addClass()" class="nav-link">Blog</a></li>
+					<li class="nav-item"><a href="/contact" onclick="addClass()" class="nav-link">Contact</a></li>
+		      {{#if users}}
+                    <li class="nav-item"><a href="/dashboard" onclick="addClass()" class="nav-link">{{users.firstName}}</a></li>
+					<li class="nav-item"><a href="/logout" onclick="addClass()" class="nav-link">Logout</a></li>
+				
+				{{else}}
+		       <li class="nav-item"><a href="/loginMain" class="nav-link">Login</a></li>
+				{{/if}}
+				
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+	{{!-- <script>
+		let btnContainer=document.getElementById('ftco-nav');
+		let btns=btnContainer.getElementsByClassName('nav-item');
+		console.log("enterererereree")
+		console.log(btns.length)
+	function addClass(){
+		btns.className.addClass('active')
+	}
+
+
+		for(i=0;i<btns.length;i++){
+			console.log("entered for looop")
+			console.log(btns[i])
+			btns[i].addEventListener('click',function(){
+				console.log("entered for in looop")
+				var current=document.getElementsByClassName('active');
+				console.log(current,"hello")
+				current[0].className=current[0].className.replace('active');
+				this.className+="active";
+			})
+		}
+	</script> --}}
+	
